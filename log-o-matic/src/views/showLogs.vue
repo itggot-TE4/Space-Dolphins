@@ -1,18 +1,66 @@
 <template>
-  <h1>hej</h1>
-  <!-- <v-data-table
-        :headers="headers"
-        :items="data"
-        :items-per-page="5"
-        class="elevation-1"
-    ></v-data-table> -->
+  <v-data-table
+    :headers="headers"
+    :items="yourStudentsData"
+    :items-per-page="5"
+    class="elevation-1"
+  ></v-data-table>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import logsTemplate from "@/components/showLogs.vue";
 export default Vue.extend({
-  name: "Logs"
-  // components: logsTemplate
+  name: "Logs",
+  data() {
+    return {
+      headers: [
+        {
+          text: "Student",
+          align: "start",
+          sortable: false,
+          value: "name"
+        },
+        { text: "Monday", value: "monday" },
+        { text: "Tuesday", value: "tuesday" },
+        { text: "Wednesday", value: "wednesday" },
+        { text: "Thursday", value: "thursday" },
+        { text: "Friday", value: "friday" }
+      ],
+      yourStudentsData: [
+        {
+          name: "Jonathan Ronsten",
+          monday: "good",
+          tuesday: "bad",
+          wednesday: "good",
+          thursday: "bad",
+          friday: "good"
+        },
+        {
+          name: "Dennis",
+          monday: "good",
+          tuesday: "bad",
+          wednesday: "good",
+          thursday: "bad",
+          friday: "good"
+        },
+        {
+          name: "Filip",
+          monday: "good",
+          tuesday: "bad",
+          wednesday: "good",
+          thursday: "bad",
+          friday: "good"
+        },
+        {
+          name: "Gomezzzz",
+          monday: "good",
+          tuesday: "bad",
+          wednesday: "good",
+          thursday: "bad",
+          friday: "good"
+        }
+      ]
+    };
+  }
 });
 </script>

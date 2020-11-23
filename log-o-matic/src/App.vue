@@ -1,59 +1,42 @@
 <template>
-<<<<<<< HEAD
+
+    <v-app>
+    <v-app-bar app>
+        <v-toolbar-title>
+          <span>Log-O-Matic</span>
+        </v-toolbar-title>
+
+        <v-container>
+          <router-link to="/">Home</router-link>
+          <router-link to="/login">Home</router-link>
+        </v-container>
+
+        <v-spacer/>
+
+        <v-btn elevation="0" height="115%" tile color>
+          <v-icon>mdi-lock-open</v-icon>
+          <span v-if="loginStatus">SIGN OUT</span>
+          <span v-else>SIGN IN</span>
+        </v-btn>
 
 
-    <v-toolbar>
+      </v-toolbar>
 
-      <v-toolbar-title>
-        <span>Log-O-Matic</span>
-      </v-toolbar-title>
+    <v-main>
+      <router-view></router-view>
+    </v-main>
+  </v-app>
 
-      <v-spacer/>
-
-      <v-btn elevation="0" height="115%" tile color>
-        <v-icon>mdi-lock-open</v-icon>
-        <span v-if="loginStatus">SIGN IN</span>
-
-        <span v-else>SIGN OUT</span>
-
-      </v-btn>
-
-
-    </v-toolbar>
-=======
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/logs">Logs</router-link>
-    </div>
-    <router-view />
-  </div>
->>>>>>> asdasd
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
 
 export default Vue.extend({
   name: "header",
-
-  components: {
-
-  },
-
   data: () => ({
-    loginStatus: true
-
+    loginStatus: false
   })
-  
 });
 
 
-
-
-
-
-
-</script>
