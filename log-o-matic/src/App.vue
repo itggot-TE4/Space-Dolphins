@@ -1,30 +1,32 @@
 <template>
-  <v-app>
 
-    <v-toolbar>
+    <v-app>
+    <v-app-bar app>
+        <v-toolbar-title>
+          <span>Log-O-Matic</span>
+        </v-toolbar-title>
 
-      <v-toolbar-title>
-        <span>Log-O-Matic</span>
-      </v-toolbar-title>
+        <v-container>
+          <router-link to="/">Home</router-link>
+          <router-link to="/login">Home</router-link>
+        </v-container>
 
-      <v-spacer/>
+        <v-spacer/>
 
-      <v-btn elevation="0" height="115%" tile color>
-        <v-icon>mdi-lock-open</v-icon>
-        <span v-if="loginStatus">SIGN IN</span>
-
-        <span v-else>SIGN OUT</span>
-
-      </v-btn>
+        <v-btn elevation="0" height="115%" tile color>
+          <v-icon>mdi-lock-open</v-icon>
+          <span v-if="loginStatus">SIGN OUT</span>
+          <span v-else>SIGN IN</span>
+        </v-btn>
 
 
-    </v-toolbar>
-    <router-link to="/">Home</router-link> 
-    <router-link to="/about">About</router-link> 
-    <router-link to="/logs">Logs</router-link>
-    <touter-view></touter-view>
+      </v-toolbar>
 
+    <v-main>
+      <router-view></router-view>
+    </v-main>
   </v-app>
+
 </template>
 
 <script lang="ts">
