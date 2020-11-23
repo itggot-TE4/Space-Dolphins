@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
 
 
     <v-toolbar>
@@ -19,6 +20,16 @@
 
 
     </v-toolbar>
+=======
+  <div id="app">
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link> |
+      <router-link to="/logs">Logs</router-link>
+    </div>
+    <router-view />
+  </div>
+>>>>>>> asdasd
 </template>
 
 <script lang="ts">
