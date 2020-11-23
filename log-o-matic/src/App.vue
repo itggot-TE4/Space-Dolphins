@@ -1,5 +1,5 @@
 <template>
-
+  <v-app>
 
     <v-toolbar>
 
@@ -19,6 +19,12 @@
 
 
     </v-toolbar>
+    <router-link to="/">Home</router-link> 
+    <router-link to="/about">About</router-link> 
+    <router-link to="/logs">Logs</router-link>
+    <touter-view></touter-view>
+
+  </v-app>
 </template>
 
 <script lang="ts">
