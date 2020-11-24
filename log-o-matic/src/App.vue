@@ -19,9 +19,6 @@
           <span v-else>SIGN IN</span>
         </v-btn>
 
-
-      </v-toolbar>
-
     <v-main>
       <router-view></router-view>
     </v-main>
