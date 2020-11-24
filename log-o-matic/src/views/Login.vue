@@ -64,7 +64,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { mdiLock } from "@mdi/js";
 
 export default Vue.extend({
   name: "Home",

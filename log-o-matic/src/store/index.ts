@@ -12,6 +12,9 @@ export default new Vuex.Store({
       3: {email: 'daniel.berg@ga.ntig.se', name: 'Daniel Berg', password: ""},
       4: {email: 'daniel.berg@ga.ntig.se', name: 'Daniel Berg', password: ""},
     },
+    user: {
+      id: 1
+    }
   },
   mutations: {},
   actions: {},
