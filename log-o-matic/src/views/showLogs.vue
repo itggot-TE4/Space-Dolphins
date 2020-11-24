@@ -23,6 +23,11 @@
             mdi-check
           </v-icon>
         </template>
+        <template v-slot:[`item.friday`]="{}">
+          <v-icon class="blue--text">
+            mdi-check
+          </v-icon>
+        </template>
       </v-data-table>
     </v-card>
     <v-divider></v-divider>
