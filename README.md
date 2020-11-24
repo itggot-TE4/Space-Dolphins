@@ -1,4 +1,6 @@
 [![Actions Status](https://github.com/itggot-TE4/TE4/workflows/tests/badge.svg)](https://github.com/itggot-TE4/Yala/actions)
+[![Maintainability](https://api.codeclimate.com/v1/badges/72a73dfd5b12411d0670/maintainability)](https://codeclimate.com/github/itggot-TE4/Space-Dolphins/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/72a73dfd5b12411d0670/test_coverage)](https://codeclimate.com/github/itggot-TE4/Space-Dolphins/test_coverage)
 # TE4
 Template project for projects at TE4. 
 
