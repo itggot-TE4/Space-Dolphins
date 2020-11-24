@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import Home from "../views/Home.vue";
 import Admin from "../views/Admin.vue";
+import Logs from "../views/showLogs.vue";
 
 Vue.use(VueRouter);
 
@@ -25,6 +26,17 @@ const routes: Array<RouteConfig> = [
     name: "Admin",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Admin.vue")
+  },
+  {
+    path: "/logs",
+    name: "Logs",
+    component: Logs
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: () =>
+      import(/* webpackChunkName: "login" */ "../views/Login.vue")
   }
 ];
 
