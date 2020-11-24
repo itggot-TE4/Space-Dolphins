@@ -1,10 +1,27 @@
 <template>
-  <v-data-table
-    :headers="headers"
-    :items="yourStudentsData"
-    :items-per-page="5"
-    class="elevation-1"
-  ></v-data-table>
+  <main>
+    <v-card width="1000px" class="mx-auto my-5">
+      <v-card-title class="text-h3">Your Students</v-card-title>
+      <v-data-table
+        calculate-widths
+        :headers="yourStudentsHeaders"
+        :items="yourStudentsData"
+        hide-default-footer
+        class="elevation-1"
+      ></v-data-table>
+    </v-card>
+    <v-divider></v-divider>
+    <v-card width="1000px" class="mx-auto my-5">
+      <v-card-title class="text-h3">Other Students</v-card-title>
+      <v-data-table
+        :headers="otherStudentsHeaders"
+        :items="otherStudentsData"
+        calculate-widths
+        hide-default-footer
+        class="elevation-1"
+      ></v-data-table>
+    </v-card>
+  </main>
 </template>
 
 <script lang="ts">
@@ -13,7 +30,7 @@ export default Vue.extend({
   name: "Logs",
   data() {
     return {
-      headers: [
+      yourStudentsHeaders: [
         {
           text: "Student",
           align: "start",
@@ -53,6 +70,77 @@ export default Vue.extend({
         },
         {
           name: "Gomezzzz",
+          monday: "good",
+          tuesday: "bad",
+          wednesday: "good",
+          thursday: "bad",
+          friday: "good"
+        }
+      ],
+      otherStudentsHeaders: [
+        {
+          text: "Student",
+          align: "start",
+          sortable: false,
+          value: "name"
+        },
+        { text: "Monday", value: "monday" },
+        { text: "Tuesday", value: "tuesday" },
+        { text: "Wednesday", value: "wednesday" },
+        { text: "Thursday", value: "thursday" },
+        { text: "Friday", value: "friday" }
+      ],
+      otherStudentsData: [
+        {
+          name: "Alexander Kjellberg",
+          monday: "good",
+          tuesday: "bad",
+          wednesday: "good",
+          thursday: "bad",
+          friday: "good"
+        },
+        {
+          name: "Rasmus",
+          monday: "good",
+          tuesday: "bad",
+          wednesday: "good",
+          thursday: "bad",
+          friday: "good"
+        },
+        {
+          name: "David",
+          monday: "good",
+          tuesday: "bad",
+          wednesday: "good",
+          thursday: "bad",
+          friday: "good"
+        },
+        {
+          name: "Jacob",
+          monday: "good",
+          tuesday: "bad",
+          wednesday: "good",
+          thursday: "bad",
+          friday: "good"
+        },
+        {
+          name: "Adrian",
+          monday: "good",
+          tuesday: "bad",
+          wednesday: "good",
+          thursday: "bad",
+          friday: "good"
+        },
+        {
+          name: "André",
+          monday: "good",
+          tuesday: "bad",
+          wednesday: "good",
+          thursday: "bad",
+          friday: "good"
+        },
+        {
+          name: "Kjellberg1",
           monday: "good",
           tuesday: "bad",
           wednesday: "good",
