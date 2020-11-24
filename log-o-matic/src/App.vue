@@ -29,8 +29,6 @@
 <script lang="ts">
 import Vue from "vue";
 import Admin from "./components/AllTeachers.vue";
-
-
 export default Vue.extend({
   name: "App",
   components: {

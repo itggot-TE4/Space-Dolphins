@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <v-app>
     <v-card width="1000px" class="mx-auto my-5">
       <v-card-title class="text-h3">Your Students</v-card-title>
       <v-data-table
@@ -30,7 +30,7 @@
         class="elevation-1"
       ></v-data-table>
     </v-card>
-  </main>
+  </v-app>
 </template>
 
 <script lang="ts">
@@ -55,9 +55,9 @@ export default Vue.extend({
       yourStudentsData: [
         {
           name: "Jonathan Ronsten",
-          monday: "good",
+          monday: "notAwnserd",
           tuesday: "bad",
-          wednesday: "good",
+          wednesday: "notAwnserd",
           thursday: "bad",
           friday: "good"
         },
