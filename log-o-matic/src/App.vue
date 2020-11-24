@@ -18,7 +18,6 @@
           <span v-if="loginStatus">SIGN OUT</span>
           <span v-else>SIGN IN</span>
         </v-btn>
-
     <v-main>
       <router-view></router-view>
     </v-main>
