@@ -1,14 +1,14 @@
 <template>
 
     <v-app>
-    <v-app-bar app>
+      <v-app-bar app>
         <v-toolbar-title>
           <span>Log-O-Matic</span>
         </v-toolbar-title>
 
         <v-container>
           <router-link to="/">Home</router-link>
-          <router-link to="/login">Home</router-link>
+          <router-link to="/login">Login</router-link>
         </v-container>
 
         <v-spacer/>
@@ -18,6 +18,7 @@
           <span v-if="loginStatus">SIGN OUT</span>
           <span v-else>SIGN IN</span>
         </v-btn>
+    </v-app-bar>
     <v-main>
       <router-view></router-view>
     </v-main>
@@ -29,10 +30,12 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  name: "header",
-  data: () => ({
-    loginStatus: false
-  })
+  name: "Layout",
+  data(){
+    return {
+      loginStatus : false
+    }
+  }
 });
 
 
