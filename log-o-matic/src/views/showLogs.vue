@@ -41,7 +41,7 @@ export default Vue.extend({
     return {
       yourStudentsHeaders: [
         {
-          text: "Student",
+          text: "Students",
           align: "start",
           sortable: false,
           value: "name"
