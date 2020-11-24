@@ -6,10 +6,12 @@
           <span>Log-O-Matic</span>
         </v-toolbar-title>
 
-        <v-container>
-          <router-link to="/">Home</router-link>
-          <router-link to="/login">Login</router-link>
-        </v-container>
+        <v-spacer/>
+        
+        <router-link to="/">Home</router-link>
+        <router-link to="/login">Login</router-link>
+        <router-link to="/logs">Logs</router-link>
+        <router-link to="/admin">Admin</router-link>
 
         <v-spacer/>
 
@@ -28,7 +30,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
 import Admin from "./components/AllTeachers.vue";
 
 export default Vue.extend({

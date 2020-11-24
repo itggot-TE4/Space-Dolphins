@@ -54,17 +54,9 @@
       <v-divider></v-divider>
       <v-card-actions>
         <v-spacer></v-spacer>
-<<<<<<< HEAD
-        <v-btn 
-          @onClick="login()"
-          color="success"
-          class="text-h6 py-6 px-3 ma-2"
-        >SIGN IN</v-btn>
-=======
         <v-btn @click="login()" color="success" class="text-h6 py-6 px-3 ma-2"
           >SIGN IN</v-btn
         >
->>>>>>> as
       </v-card-actions>
     </v-card>
   </v-container>
@@ -72,7 +64,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { mdiLock } from "@mdi/js";
 
 export default Vue.extend({
   name: "Home",
