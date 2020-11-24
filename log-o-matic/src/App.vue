@@ -1,32 +1,48 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+
+
+    <v-toolbar>
+
+      <v-toolbar-title>
+        <span>Log-O-Matic</span>
+      </v-toolbar-title>
+
+      <v-spacer/>
+
+      <v-btn elevation="0" height="115%" tile color>
+        <v-icon>mdi-lock-open</v-icon>
+        <span v-if="loginStatus">SIGN IN</span>
+
+        <span v-else>SIGN OUT</span>
+
+      </v-btn>
+
+
+    </v-toolbar>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import Vue from "vue";
+import HelloWorld from "./components/HelloWorld.vue";
 
-#nav {
-  padding: 30px;
-}
+export default Vue.extend({
+  name: "header",
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  components: {
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+  },
+
+  data: () => ({
+    loginStatus: true
+
+  })
+  
+});
+
+
+
+
+
+
+
+</script>
