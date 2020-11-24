@@ -63,7 +63,7 @@
       <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn 
-          @onClick="login()"
+          @click="login()"
           color="success"
           class="text-h6 py-6 px-3 ma-2"
         >SIGN IN</v-btn>
