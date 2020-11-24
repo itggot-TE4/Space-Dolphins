@@ -8,7 +8,16 @@
         :items="yourStudentsData"
         hide-default-footer
         class="elevation-1"
-      ></v-data-table>
+      >
+        <template v-slot:[`item.monday`]="{}">
+          <v-row>
+            <v-icon
+              class="mx-auto ml-5 white--text orange lighten-2 rounded-circle"
+              >mdi-exclamation</v-icon
+            >
+          </v-row>
+        </template>
+      </v-data-table>
     </v-card>
     <v-divider></v-divider>
     <v-card width="1000px" class="mx-auto my-5">
