@@ -1,5 +1,24 @@
 <template>
-  <router-view></router-view>
+
+
+    <v-toolbar>
+
+      <v-toolbar-title>
+        <span>Log-O-Matic</span>
+      </v-toolbar-title>
+
+      <v-spacer/>
+
+      <v-btn elevation="0" height="115%" tile color>
+        <v-icon>mdi-lock-open</v-icon>
+        <span v-if="loginStatus">SIGN IN</span>
+
+        <span v-else>SIGN OUT</span>
+
+      </v-btn>
+
+
+    </v-toolbar>
 </template>
 
 <script lang="ts">
