@@ -25,6 +25,9 @@
         />
       </div>
 
+      <router-link to="/">Home</router-link>
+      <router-link to="/login">Login</router-link>
+
       <v-spacer></v-spacer>
 
       <v-btn
