@@ -13,9 +13,15 @@
           <v-row>
             <v-icon
               class="mx-auto ml-5 white--text orange lighten-2 rounded-circle"
-              >mdi-exclamation</v-icon
             >
+              mdi-exclamation
+            </v-icon>
           </v-row>
+        </template>
+        <template v-slot:[`item.wednesday`]="{}">
+          <v-icon class="">
+            mdi-check
+          </v-icon>
         </template>
       </v-data-table>
     </v-card>
@@ -55,7 +61,7 @@ export default Vue.extend({
       yourStudentsData: [
         {
           name: "Jonathan Ronsten",
-          monday: "notAwnserd",
+          monday: "good",
           tuesday: "bad",
           wednesday: "notAwnserd",
           thursday: "bad",
