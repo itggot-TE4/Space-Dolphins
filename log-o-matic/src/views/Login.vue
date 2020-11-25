@@ -64,6 +64,7 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { mapGetters } from "vuex";
 
 export default Vue.extend({
   name: "Home",
@@ -74,9 +75,18 @@ export default Vue.extend({
       showPassword: false
     };
   },
+  computed: {
+    ...mapGetters("users", ["getCurrentUser"])
+  },
   methods: {
-    login() {
-      console.log(123);
+    async login() {
+      await this.$store.dispatch("authorize", {
+        email: this.email,
+        password: this.password
+      });
+      if (this.$store.getters.getCurrentUserRole != "guest") {
+        this.$router.push("/logs");
+      }
     }
   }
 });

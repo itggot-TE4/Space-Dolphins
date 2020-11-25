@@ -1,66 +1,12 @@
 <template>
-  <v-data-table
-    :headers="headers"
-    :items="yourStudentsData"
-    :items-per-page="5"
-    class="elevation-1"
-  ></v-data-table>
+  <ShowLogs />
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import ShowLogs from "@/components/showLog.vue";
 export default Vue.extend({
-  name: "Logs",
-  data() {
-    return {
-      headers: [
-        {
-          text: "Student",
-          align: "start",
-          sortable: false,
-          value: "name"
-        },
-        { text: "Monday", value: "monday" },
-        { text: "Tuesday", value: "tuesday" },
-        { text: "Wednesday", value: "wednesday" },
-        { text: "Thursday", value: "thursday" },
-        { text: "Friday", value: "friday" }
-      ],
-      yourStudentsData: [
-        {
-          name: "Jonathan Ronsten",
-          monday: "good",
-          tuesday: "bad",
-          wednesday: "good",
-          thursday: "bad",
-          friday: "good"
-        },
-        {
-          name: "Dennis",
-          monday: "good",
-          tuesday: "bad",
-          wednesday: "good",
-          thursday: "bad",
-          friday: "good"
-        },
-        {
-          name: "Filip",
-          monday: "good",
-          tuesday: "bad",
-          wednesday: "good",
-          thursday: "bad",
-          friday: "good"
-        },
-        {
-          name: "Gomezzzz",
-          monday: "good",
-          tuesday: "bad",
-          wednesday: "good",
-          thursday: "bad",
-          friday: "good"
-        }
-      ]
-    };
-  }
+  name: "ViewLogs",
+  components: { ShowLogs }
 });
 </script>

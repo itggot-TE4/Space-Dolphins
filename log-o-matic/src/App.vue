@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <v-app>
     <v-app-bar app>
       <v-toolbar-title>
@@ -11,6 +12,20 @@
       <router-link to="/login">Login</router-link>
       <router-link to="/logs">Logs</router-link>
       <router-link to="/admin">Admin</router-link>
+=======
+    <v-app>
+      <v-app-bar app>
+        <v-toolbar-title>
+          <span>Log-O-Matic</span>
+        </v-toolbar-title>
+
+        <v-spacer/>
+        
+        <router-link to="/">Home</router-link> | 
+        <router-link to="/login">Login</router-link> | 
+        <router-link to="/logs">Logs</router-link> | 
+        <router-link to="/admin">Admin</router-link>
+>>>>>>> e4f85c07d16a9423653af0d26ccd4f6510a7b03e
 
       <v-spacer />
 
@@ -29,7 +44,6 @@
 <script lang="ts">
 import Vue from "vue";
 import Admin from "./components/AllTeachers.vue";
-
 export default Vue.extend({
   name: "App",
   components: {
