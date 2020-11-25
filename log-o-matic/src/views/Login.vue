@@ -76,7 +76,10 @@ export default Vue.extend({
   },
   methods: {
     login() {
-      console.log(123);
+      this.$store.dispatch("auth/authorize", {
+        email: this.email,
+        password: this.password
+      });
     }
   }
 });
