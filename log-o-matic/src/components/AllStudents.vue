@@ -14,8 +14,9 @@
                             class="mb-0"
                             :items="Object.values(fetchTeachers)"
                             item-text="name"
+                            item-value="email"
                             :label="fetchTeachers[item.teacherId].name"
-                            v-on:change="newteacher(item, $event)" 
+                            v-on:change="updateteacher(item, $event)" 
                             ></v-select>
                         </v-row>
                     </template>
@@ -35,13 +36,21 @@
                 <v-divider color="black"></v-divider>
                 <v-card-subtitle>Add New Student</v-card-subtitle>
                 <v-row class="ma-1">
-                    <v-text-field label="Email"></v-text-field>
-                    <v-text-field label="Name"></v-text-field>
-                    <v-text-field label="Password"></v-text-field>
+                    <v-text-field v-model="email" label="Email"></v-text-field>
+                    <v-text-field v-model="name" label="Name"></v-text-field>
+                    <v-select 
+                    :items="Object.values(fetchTeachers)"
+                    item-text="name"
+                    item-value="email"
+                    v-model="teacher"
+                    label="Teacher"
+                    ></v-select>
+                    <v-text-field v-model="password" label="Password"></v-text-field>
                 </v-row>
                 <v-row>
                     <v-spacer></v-spacer>
                     <v-btn
+                    v-on:click="newstudent()"
                     color="green"
                     elevation="2"
                     class="ma-2 white--text"
@@ -61,6 +70,10 @@ export default Vue.extend({
     name: "AllStudents",
     data(){
       return{
+        email: "",
+        name: "",
+        teacher: "",
+        password: "",
         headers: [
             { text: 'Email', value: 'email' },
             { text: 'Name', value: 'name' },
@@ -75,9 +88,20 @@ export default Vue.extend({
             console.log(item)
         },
 
-        newteacher: function(item: any, e : any){
-            // e = teachername
-            // item 
+        updateteacher: function(item : {}, e: Event){
+            console.log(item)
+            console.log(e)
+        },
+
+        newstudent: function(){
+            const student = {
+                name: this.name,
+                email: this.email,
+                teacherId: this.teacher,
+                password: this.password
+            }
+
+            this.$store.commit('addStudent', student)
         },
     },
 
