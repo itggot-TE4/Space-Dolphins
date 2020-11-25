@@ -1,38 +1,85 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import { Module } from "vuex";
+import { v4 as uuid } from "uuid";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
     teachers: {
-      1: { email: "daniel.berg@ga.ntig.se", name: "Daniel Berg", password: "" },
-      2: { email: "daniel.berg@ga.ntig.se", name: "Del Berg", password: "" },
-      3: { email: "daniel.berg@ga.ntig.se", name: "Kaktus Berg", password: "" },
-      4: { email: "daniel.berg@ga.ntig.se", name: "Ananas Berg", password: "" }
+      "8375d379-70fd-4977-b3ab-03d66f32ca8f": {
+        email: "daniel.berg@ga.ntig.se",
+        name: "Daniel Berg",
+        password: ""
+      },
+      "8375d379-71fd-4977-b3ab-03d66f32ca8f": {
+        email: "daniel.berg@ga.ntig.se",
+        name: "Del Berg",
+        password: ""
+      },
+      "8375ds79-70fd-4977-b3ab-03d66f32ca8f": {
+        email: "daniel.berg@ga.ntig.se",
+        name: "Kaktus Berg",
+        password: ""
+      },
+      "8375dc79-70fd-4977-b3ab-03d66f32ca8f": {
+        email: "daniel.berg@ga.ntig.se",
+        name: "Ananas Berg",
+        password: ""
+      }
     },
     user: {
       id: 1
     },
-    
+
     students: {
-      1: { name: "Kalle", teacherId: 3, password: "", email: "abc@gmail.com" },
-      2: { name: "Kalle", teacherId: 1, password: "", email: "abc@gmail.com" },
-      3: { name: "Kalle", teacherId: 2, password: "", email: "abc@gmail.com" },
-      4: { name: "Kalle", teacherId: 2, password: "", email: "abc@gmail.com" },
-      5: { name: "Kalle", teacherId: 4, password: "", email: "abc@gmail.com" }
+      "8375d379-70fd-4977-b3ab-03d66f32ca8f": {
+        name: "Kalle",
+        teacherId: "8375d379-70fd-4977-b3ab-03d66f32ca8f",
+        password: "",
+        email: "abc@gmail.com"
+      },
+      "83c5d379-70fd-4977-b3ab-03d66f32ca8f": {
+        name: "Kalle",
+        teacherId: "8375dc79-70fd-4977-b3ab-03d66f32ca8f",
+        password: "",
+        email: "abc@gmail.com"
+      },
+      "83d5d379-70fd-4977-b3ab-03d66f32ca8f": {
+        name: "Kalle",
+        teacherId: "8375d379-71fd-4977-b3ab-03d66f32ca8f",
+        password: "",
+        email: "abc@gmail.com"
+      },
+      "83a5d379-70fd-4977-b3ab-03d66f32ca8f": {
+        name: "Kalle",
+        teacherId: "8375dc79-70fd-4977-b3ab-03d66f32ca8f",
+        password: "",
+        email: "abc@gmail.com"
+      },
+      "8315d379-70fd-4977-b3ab-03d66f32ca8f": {
+        name: "Kalle",
+        teacherId: "8375dc79-70fd-4977-b3ab-03d66f32ca8f",
+        password: "",
+        email: "abc@gmail.com"
+      }
     }
   },
-  mutations: {},
+  mutations: {
+    addTeacher(state, teacher) {
+      //teacher = 1: {name: "teacher1", password: "password123", email: "teacher@mail.com"}
+      Vue.set(state.teachers, uuid(), teacher);
+    }
+  },
   actions: {},
   modules: {},
   getters: {
-    teachers(state) {
+    getTeachers(state) {
       return state.teachers;
     },
 
-    students(state) {
+    getStudents(state) {
       return state.students;
     }
   }
