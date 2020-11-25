@@ -7,7 +7,7 @@
           <v-data-table
             hide-default-footer
             :headers="headers"
-            :items="teachers"
+            :items="fetchTeachers"
           >
             <template v-slot:[`item.password`]="{ item }">
               <v-row class="justify-center align-end mb-5">
@@ -30,13 +30,17 @@
           <v-divider color="black"></v-divider>
           <v-card-subtitle>Add New Teacher</v-card-subtitle>
           <v-row class="ma-1">
-            <v-text-field label="Email"></v-text-field>
-            <v-text-field label="Name"></v-text-field>
-            <v-text-field label="Password"></v-text-field>
+            <v-text-field v-model="email" label="Email"></v-text-field>
+            <v-text-field v-model="name" label="Name"></v-text-field>
+            <v-text-field v-model="password" label="Password"></v-text-field>
           </v-row>
           <v-row>
             <v-spacer></v-spacer>
-            <v-btn color="green" elevation="2" class="ma-2 white--text"
+            <v-btn
+              v-on:click="create"
+              color="green"
+              elevation="2"
+              class="ma-2 white--text"
               >CREATE</v-btn
             >
           </v-row>
@@ -54,19 +58,44 @@ export default Vue.extend({
   name: "AllTeachers",
   data() {
     return {
+      email: "",
+      name: "",
+      password: "",
       headers: [
         { text: "Email", value: "email" },
         { text: "Name", value: "name" },
         { text: "Fix password", value: "password" }
-      ],
-
-      teachers: Object.values(this.$store.state.teachers)
+      ]
     };
   },
 
   methods: {
     newpassword: function(item: Record<string, any>) {
       console.log(item);
+    },
+
+    create: function() {
+      const teacher = {
+        name: this.name,
+        email: this.email,
+        password: this.password
+      };
+      this.$store.commit("addTeacher", teacher);
+    }
+  },
+
+  computed: {
+    fetchTeachers() {
+      const teachers: { password: string }[] = Object.values(
+        this.$store.getters.getTeachers
+      );
+
+      teachers.forEach(teacher => {
+        teacher.password = "";
+      });
+
+      console.log(teachers);
+      return teachers;
     }
   },
 

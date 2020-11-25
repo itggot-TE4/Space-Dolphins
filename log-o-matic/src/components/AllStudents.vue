@@ -7,14 +7,14 @@
                 <v-data-table
                     hide-default-footer
                     :headers="headers"
-                    :items="students">
+                    :items="fetchStudents">
                     <template v-slot:[`item.teacher`]="{ item }">
                         <v-row class="justify-center align-end mb-0">
                             <v-select 
                             class="mb-0"
-                            :items="arrteachers"
+                            :items="Object.values(fetchTeachers)"
                             item-text="name"
-                            :label="teachers[item.teacher_id].name"
+                            :label="fetchTeachers[item.teacherId].name"
                             v-on:change="newteacher(item, $event)" 
                             ></v-select>
                         </v-row>
@@ -67,10 +67,6 @@ export default Vue.extend({
             { text: 'Teacher', value: 'teacher' },
             { text: "Fix password", value: "password"}
         ],
-        students: Object.values(this.$store.state.students),
-        teachers: this.$store.state.teachers,
-        arrteachers: Object.values(this.$store.state.teachers),
-
       }
     },
 
@@ -81,8 +77,25 @@ export default Vue.extend({
 
         newteacher: function(item: any, e : any){
             // e = teachername
-            // item = studentobject
+            // item 
         },
+    },
+
+    computed: {
+        fetchStudents () {
+            let students : {password: string}[]= Object.values(this.$store.getters.getStudents);
+
+            students.forEach(student => {
+                student.password = "";
+            });
+
+            console.log(students)
+            return students
+        },
+
+        fetchTeachers () {
+            return this.$store.getters.getTeachers;
+        }
     },
 
     components: {
