@@ -13,11 +13,16 @@ export interface User {
 
 export interface UserState {
   users: User[];
+  currentUser: User;
 }
 
 export default {
-  namespaced: true,
   state: {
+    namespaced: true,
+    currentUser: {
+      role: "guest",
+      name: "guest"
+    } as User,
     users: [
       {
         id: "8375d379-70fd-4977-b5ab-03d66f32ca8f",
@@ -100,6 +105,14 @@ export default {
     addTeacher(state, teacher) {
       //teacher = 1: {name: "teacher1", password: "password123", email: "teacher@mail.com"}
       Vue.set(state.users, uuid(), teacher);
+    },
+    setCurrentUser(state, user) {
+      state.currentUser = user;
+    }
+  },
+  actions: {
+    login({ commit }, user) {
+      commit("setCurrentUser", user);
     }
   },
   getters: {
@@ -113,6 +126,14 @@ export default {
 
     getUsers(state) {
       return state.users;
+    },
+
+    getCurrentUser(state) {
+      return state.currentUser;
+    },
+
+    getCurrentUserRole(state) {
+      return state.currentUser.role;
     }
   }
 } as Module<UserState, {}>;
