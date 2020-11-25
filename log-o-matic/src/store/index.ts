@@ -15,7 +15,7 @@ export default new Vuex.Store({
     user: {
       id: 1
     },
-    
+
     students: {
       1: { name: "Kalle", teacherId: 3, password: "", email: "abc@gmail.com" },
       2: { name: "Kalle", teacherId: 1, password: "", email: "abc@gmail.com" },
