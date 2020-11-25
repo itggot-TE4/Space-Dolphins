@@ -1,5 +1,4 @@
 <template>
-
     <v-app>
       <v-app-bar app>
         <v-toolbar-title>
@@ -8,9 +7,9 @@
 
         <v-spacer/>
         
-        <router-link to="/">Home</router-link>
-        <router-link to="/login">Login</router-link>
-        <router-link to="/logs">Logs</router-link>
+        <router-link to="/">Home</router-link> | 
+        <router-link to="/login">Login</router-link> | 
+        <router-link to="/logs">Logs</router-link> | 
         <router-link to="/admin">Admin</router-link>
 
         <v-spacer/>
@@ -25,13 +24,11 @@
       <router-view></router-view>
     </v-main>
   </v-app>
-
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import Admin from "./components/AllTeachers.vue";
-
 export default Vue.extend({
   name: "App",
   components: {
