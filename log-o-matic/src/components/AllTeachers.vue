@@ -71,7 +71,7 @@ export default Vue.extend({
 
   methods: {
     newpassword: function(item: Record<string, any>) {
-      console.log(item);
+      this.$store.commit('')
     },
 
     create: function() {
