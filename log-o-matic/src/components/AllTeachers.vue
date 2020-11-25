@@ -86,15 +86,12 @@ export default Vue.extend({
 
   computed: {
     fetchTeachers() {
-      const teachers: { password: string }[] = Object.values(
-        this.$store.getters.getTeachers
-      );
+      const teachers: { password: string }[] = this.$store.getters.getTeachers;
 
       teachers.forEach(teacher => {
         teacher.password = "";
       });
 
-      console.log(teachers);
       return teachers;
     }
   },
