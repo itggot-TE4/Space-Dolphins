@@ -12,7 +12,7 @@
                         <v-row class="justify-center align-end mb-0">
                             <v-select 
                             class="mb-0"
-                            :items="Object.values(fetchTeachers)"
+                            :items="fetchTeachers"
                             item-text="name"
                             item-value="email"
                             :label="fetchTeachers[item.teacherId].name"
@@ -107,7 +107,7 @@ export default Vue.extend({
 
     computed: {
         fetchStudents () {
-            let students : {password: string}[]= Object.values(this.$store.getters.getStudents);
+            let students : {password: string}[]= this.$store.getters.getStudents;
 
             students.forEach(student => {
                 student.password = "";
