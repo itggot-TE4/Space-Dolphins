@@ -116,12 +116,10 @@ export default {
       student["id"] = uuid();
       state.users.push(student);
     },
-    
-    updateTeacherPassword(state, updatedteacher) {
-      const index = state.users.findIndex(
-        teacher => teacher.id == updatedteacher.id
-      );
-      state.users[index].password = updatedteacher.password;
+
+    updatePassword(state, updateduser) {
+      const index = state.users.findIndex(user => user.id == updateduser.id);
+      state.users[index].password = updateduser.password;
     }
   },
   actions: {
