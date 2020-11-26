@@ -3,37 +3,43 @@ import { Module, mapGetters } from "vuex";
 import { User } from "./users";
 
 export interface AuthState {
-  failure: string;
+  error: string;
 }
 
 export default {
   state: {
     namespaced: true,
-    failure: ""
+    error: ""
   },
   computed: {
     ...mapGetters("users", ["getUsers"])
   },
+  mutations: {
+    setLoginError(state, error) {
+      state.error = error;
+    }
+  },
   actions: {
     async authorize(
-      { dispatch },
+      { dispatch, commit },
       credentials: { email: string; password: string }
     ) {
-      try {
-        const users: User[] = this.getters.getUsers;
-        const user: User | undefined = users.find(
-          user =>
-            user.email === credentials.email &&
-            user.password === credentials.password
-        );
-        if (user != undefined) {
-          dispatch("setUser", user);
-        } else {
-          throw "Account not found";
-        }
-      } catch (error) {
-        console.log(error);
+      const users: User[] = this.getters.getUsers;
+      const user: User | undefined = users.find(
+        user =>
+          user.email === credentials.email &&
+          user.password === credentials.password
+      );
+      if (user != undefined) {
+        dispatch("setUser", user);
+      } else {
+        commit("setLoginError", "Wrong email or password");
       }
+    }
+  },
+  getters: {
+    getLoginError(state) {
+      return state.error;
     }
   }
 } as Module<AuthState, {}>;

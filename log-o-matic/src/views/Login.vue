@@ -7,6 +7,9 @@
   >
     <v-card elevation="2">
       <v-card-title class="text-h3 ma-2">Sign In</v-card-title>
+      <v-card-subtitle class="text-h6 ma-2 red--text" v-if="loginError != ''">{{
+        loginError
+      }}</v-card-subtitle>
       <v-card-actions class="ma-4">
         <v-icon large class="mr-3">mdi-account-circle</v-icon>
         <v-text-field
@@ -76,7 +79,9 @@ export default Vue.extend({
     };
   },
   computed: {
-    ...mapGetters("users", ["getCurrentUser"])
+    loginError() {
+      return this.$store.getters.getLoginError;
+    }
   },
   methods: {
     async login() {

@@ -3,7 +3,7 @@ import VueRouter, { RouteConfig } from "vue-router";
 import store from "@/store/index";
 import Home from "../views/Home.vue";
 import Admin from "../views/Admin.vue";
-import Logs from "../views/ShowLogs.vue";
+import ShowLogs from "../views/ShowLogs.vue";
 import Login from "../views/Login.vue";
 
 Vue.use(VueRouter);
@@ -28,7 +28,7 @@ const routes: Array<RouteConfig> = [
   {
     path: "/logs",
     name: "Logs",
-    component: Logs,
+    component: ShowLogs,
     meta: {
       allowedRoles: ["admin", "teacher", "student"]
     }
