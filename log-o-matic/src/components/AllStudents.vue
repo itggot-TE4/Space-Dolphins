@@ -53,6 +53,7 @@
               item-value="email"
               v-model="teacher"
               label="Teacher"
+              v-on:change="setNewTeacher(item)"
             ></v-select>
             <v-text-field v-model="password" label="Password"></v-text-field>
           </v-row>
@@ -112,6 +113,11 @@ export default Vue.extend({
       };
 
       this.$store.commit("addStudent", student);
+    },
+
+    setNewTeacher: function(student: any) {
+      console.log(this.teacher);
+      console.log(student);
     }
   },
 
