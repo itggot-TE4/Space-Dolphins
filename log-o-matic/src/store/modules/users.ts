@@ -119,7 +119,6 @@ export default {
 
     updatePassword(state, payload) {
       const user = payload.user;
-      console.log(payload);
       const newpassword = payload.newpassword;
       const index = state.users.findIndex(search => search.id == user.id);
       state.users[index].password = newpassword;

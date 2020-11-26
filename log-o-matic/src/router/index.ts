@@ -3,7 +3,7 @@ import VueRouter, { RouteConfig } from "vue-router";
 import store from "@/store/index";
 import Home from "../views/Home.vue";
 import Admin from "../views/Admin.vue";
-import ShowLogs from "../views/ShowLogs.vue";
+import ViewLogs from "../views/ViewLogs.vue";
 import Login from "../views/Login.vue";
 import Student from "../views/Student.vue";
 
@@ -29,7 +29,7 @@ const routes: Array<RouteConfig> = [
   {
     path: "/logs",
     name: "Logs",
-    component: ShowLogs,
+    component: ViewLogs,
     meta: {
       allowedRoles: ["admin", "teacher"]
     }
