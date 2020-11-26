@@ -115,6 +115,13 @@ export default {
     addStudent(state, student) {
       student["id"] = uuid();
       state.users.push(student);
+    },
+    
+    updateTeacherPassword(state, updatedteacher) {
+      const index = state.users.findIndex(
+        teacher => teacher.id == updatedteacher.id
+      );
+      state.users[index].password = updatedteacher.password;
     }
   },
   actions: {
