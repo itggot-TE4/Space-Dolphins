@@ -123,7 +123,7 @@ export default {
     }
   },
   actions: {
-    login({ commit }, user) {
+    setUser({ commit }, user) {
       commit("setCurrentUser", user);
     }
   },
