@@ -107,7 +107,7 @@ export default {
       teacher["id"] = uuid();
       state.users.push(teacher);
     },
-    
+
     setCurrentUser(state, user) {
       state.currentUser = user;
     },
@@ -120,8 +120,7 @@ export default {
   actions: {
     login({ commit }, user) {
       commit("setCurrentUser", user);
-
-    },
+    }
   },
   getters: {
     getTeachers(state) {
