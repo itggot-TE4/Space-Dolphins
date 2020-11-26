@@ -16,7 +16,7 @@ export default {
   },
   actions: {
     async authorize(
-      { commit, dispatch },
+      { dispatch },
       credentials: { email: string; password: string }
     ) {
       try {

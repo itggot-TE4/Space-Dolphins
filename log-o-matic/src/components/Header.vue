@@ -67,6 +67,7 @@ export default Vue.extend({
   methods: {
     logOut() {
       this.$store.dispatch("setUser", { role: "guest", name: "guest" });
+      this.$router.push("/");
     }
   }
 });
