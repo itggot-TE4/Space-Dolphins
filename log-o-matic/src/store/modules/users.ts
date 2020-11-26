@@ -117,9 +117,20 @@ export default {
       state.users.push(student);
     },
 
-    updatePassword(state, updateduser) {
-      const index = state.users.findIndex(user => user.id == updateduser.id);
-      state.users[index].password = updateduser.password;
+    updatePassword(state, payload) {
+      const user = payload.user;
+      console.log(payload);
+      const newpassword = payload.newpassword;
+      const index = state.users.findIndex(search => search.id == user.id);
+      state.users[index].password = newpassword;
+    },
+
+    setNewTeacher(state, payload) {
+      const student = payload.student;
+      const teacherId = payload.teacher;
+      const index = state.users.findIndex(user => user.id == student.id);
+
+      state.users[index].teacherId = teacherId;
     }
   },
   actions: {

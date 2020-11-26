@@ -10,29 +10,15 @@
             :items="fetchTeachers"
           >
             <template v-slot:[`item.password`]="{ item }">
-              <v-row class="justify-center align-end mb-5">
-                <v-text-field
-                  v-model="item.password"
-                  placeholder="Password"
-                  class="ma-0"
-                  hide-details="auto"
-                ></v-text-field>
-                <v-btn
-                  color="blue"
-                  class="white--text rounded-0"
-                  small
-                  v-on:click="newpassword(item)"
-                  >RESET</v-btn
-                >
-              </v-row>
+              <table-row :item="item"></table-row>
             </template>
           </v-data-table>
           <v-divider color="black"></v-divider>
           <v-card-subtitle>Add New Teacher</v-card-subtitle>
           <v-row class="ma-1">
-            <v-text-field v-model="email" label="Email"></v-text-field>
-            <v-text-field v-model="name" label="Name"></v-text-field>
-            <v-text-field v-model="password" label="Password"></v-text-field>
+            <v-text-field v-model="newEmail" label="Email"></v-text-field>
+            <v-text-field v-model="newName" label="Name"></v-text-field>
+            <v-text-field v-model="newPassword" label="Password"></v-text-field>
           </v-row>
           <v-row>
             <v-spacer></v-spacer>
@@ -54,14 +40,15 @@
 import Vue from "vue";
 import Teacher from "./Teacher.vue";
 import uuid from "uuid";
+import TableRow from "./TableRow.vue";
 
 export default Vue.extend({
   name: "AllTeachers",
   data() {
     return {
-      email: "",
-      name: "",
-      password: "",
+      newEmail: "",
+      newName: "",
+      newPassword: "",
       headers: [
         { text: "Email", value: "email" },
         { text: "Name", value: "name" },
@@ -71,43 +58,33 @@ export default Vue.extend({
   },
 
   methods: {
-    newpassword: function(payload: Record<string, any>) {
-      this.$store.commit("updatePassword", payload);
-    },
-
-    create: function() {
+    create() {
       const teacher = {
-        name: this.name,
-        email: this.email,
-        password: this.password,
+        name: this.newName,
+        email: this.newEmail,
+        password: this.newPassword,
         role: "teacher"
       };
+
       this.$store.commit("addTeacher", teacher);
     }
   },
 
   computed: {
     fetchTeachers() {
-      const teachers: { password: string }[] = this.$store.getters.getTeachers;
-      console.log(teachers);
-
-      teachers.forEach(teacher => {
-        teacher.password = "";
-      });
-
-      return teachers;
+      return this.$store.getters.getTeachers;
     }
   },
 
   components: {
-    // Teacher
+    TableRow
   }
 });
 </script>
 
 <style scoped>
 .sizer {
-  width: 90%;
+  width: 80%;
   height: 90%;
   margin: auto;
 }
