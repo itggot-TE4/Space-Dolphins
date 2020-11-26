@@ -27,7 +27,7 @@ export default {
             user.password === credentials.password
         );
         if (user != undefined) {
-          dispatch("login", user);
+          dispatch("setUser", user);
         } else {
           throw "Account not found";
         }

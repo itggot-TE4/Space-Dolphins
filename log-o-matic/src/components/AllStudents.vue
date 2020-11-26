@@ -93,8 +93,8 @@ export default Vue.extend({
   },
 
   methods: {
-    newpassword: function(item: any) {
-      console.log(item);
+    newpassword: function(payload: Record<string, any>) {
+      this.$store.commit("updatePassword", payload);
     },
 
     updateteacher: function(item: {}, e: Event) {

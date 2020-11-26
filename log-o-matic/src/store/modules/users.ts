@@ -115,10 +115,15 @@ export default {
     addStudent(state, student) {
       student["id"] = uuid();
       state.users.push(student);
+    },
+
+    updatePassword(state, updateduser) {
+      const index = state.users.findIndex(user => user.id == updateduser.id);
+      state.users[index].password = updateduser.password;
     }
   },
   actions: {
-    login({ commit }, user) {
+    setUser({ commit }, user) {
       commit("setCurrentUser", user);
     }
   },
