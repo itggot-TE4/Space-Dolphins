@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card class="mx-auto mt-8 text-center" width="300px">
-      <h2>{{ getAllLogs[0].log[1].day }} {{ getAllLogs[0].log[2].week }}</h2>
+      <h2>{{ getAllLogs[0].logs[1].day }} {{ getAllLogs[0].logs[2].week }}</h2>
       <div class="mx-auto align-center justify-center mt-8 text-center">
         <v-radio-group @change="Switch()" row v-model="OneOrAll">
           <v-radio active value="One" label="One at a Time"></v-radio>
@@ -14,20 +14,19 @@
         <v-icon>mdi-greater-than</v-icon>
       </div>
     </v-card>
-    <LogTemplateTeacher :oneLog="getAllLogs[0].log[2]" />
+    <LogTemplateTeacher :oneLog="getAllLogs[0].logs[2]" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import LogTemplateTeacher from "@/components/LogTemplateTeacher.vue";
-import Store from "@/store";
 export default Vue.extend({
   name: "ShowLogsForOneDay",
   components: { LogTemplateTeacher },
   computed: {
     getAllLogs() {
-      return Store.getters.getLogs;
+      return this.$store.getters.getLogs;
     }
   },
   data() {

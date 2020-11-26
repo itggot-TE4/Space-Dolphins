@@ -59,22 +59,22 @@ const routes: Array<RouteConfig> = [
     //   import(/* webpackChunkName: "login" */ "../views/Login.vue")
   },
   {
-    path: "/ShowLogsForOneDay",
+    path: "/showlogsforoneday",
     name: "ShowLogsForOneStudent",
     component: ShowLogsForOneDay
   },
   {
-    path: "/ShowLogsForOneStudent",
+    path: "/showlogsforonestudent",
     name: "ShowLogsForOneStudent",
     component: ShowLogsForOneStudent
   },
   {
-    path: "/ShowOnlyOneLog",
+    path: "/showonlyonelog",
     name: "ShowOnlyOneLog",
     component: ShowOnlyOneLog
   },
   {
-    path: "/StudentLog",
+    path: "/studentlog",
     name: "StudentLog",
     component: StudentLog
   }
@@ -87,18 +87,22 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const allowedRoles: string[] = to.meta.allowedRoles;
-  const userRole: string = store.getters.getCurrentUserRole;
-  if (allowedRoles.some(role => role === userRole)) {
-    next();
-  } else {
-    if (userRole === "guest") {
-      next("/");
-    } else if (userRole === "student") {
-      next("/student");
+  if (to.meta.allowedRoles) {
+    const allowedRoles: string[] = to.meta.allowedRoles;
+    const userRole: string = store.getters.getCurrentUserRole;
+    if (allowedRoles.some(role => role === userRole)) {
+      next();
     } else {
-      next("/logs");
+      if (userRole === "guest") {
+        next("/");
+      } else if (userRole === "student") {
+        next("/student");
+      } else {
+        next("/logs");
+      }
     }
+  } else {
+    next();
   }
 });
 

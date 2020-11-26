@@ -32,9 +32,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import Vuex from "vuex";
 import Timeline from "./Timeline.vue";
-import { mapGetters } from "vuex";
 import Question from "./Question.vue";
 import Store from "@/store";
 export default Vue.extend({
@@ -52,9 +50,6 @@ export default Vue.extend({
     };
   },
   computed: {
-    /*
-        ...mapGetters('users', ['getCurrentUserRole']),
-        ...mapGetters('comment', ['allComments'])' */
     currentUserRole() {
       return Store.getters.getCurrentUserRole;
     },

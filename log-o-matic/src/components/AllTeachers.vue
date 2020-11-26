@@ -38,8 +38,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import Teacher from "./Teacher.vue";
-import uuid from "uuid";
+// import Teacher from "./Teacher.vue";
 import TableRow from "./TableRow.vue";
 
 export default Vue.extend({

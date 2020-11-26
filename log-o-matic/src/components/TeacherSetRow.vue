@@ -26,7 +26,7 @@ export default Vue.extend({
   },
 
   methods: {
-    setNewTeacher: function(student: any) {
+    setNewTeacher: function(student: {}) {
       this.$store.commit("setNewTeacher", {
         student: student,
         teacher: this.teacherId

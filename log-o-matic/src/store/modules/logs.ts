@@ -1,32 +1,39 @@
-export interface Log {
-  email: string;
-  name: string;
+import { Module } from "vuex";
+
+export interface User {
   id: string;
+  name: string;
+  email: string;
+  teacherId?: string;
   password: string;
   role: string;
-  teacherId?: string;
-  logs: {}[];
+  logs?: Log[];
 }
 
-export interface Logs {
+export interface Log {
+  logId: number;
   day: string;
   week: string;
-  logID: number;
   year: number;
+  logUser: string;
   questions: {}[];
   comments: {}[];
+}
+
+export interface LogsState {
+  users: User[];
 }
 
 export interface Comment {
   name: string;
   data: string;
-  log: Record<string, any>;
+  log: Record<string, string | number>;
 }
 
 export default {
   state: {
     namespaced: true,
-    logs: [
+    users: [
       {
         id: "8375d379-70fd-4977-b3ab-03d66f32ca8f",
         name: "Jonathan Ronsten",
@@ -34,13 +41,13 @@ export default {
         password: "123",
         email: "abc@gmail.com",
         role: "student",
-        log: [
+        logs: [
           {
-            day: "Monday",
-            logUser: "Jonathan Ronsten",
-            week: "Week 48",
             logId: 0,
+            day: "Monday",
+            week: "Week 48",
             year: 2020,
+            logUser: "Jonathan Ronsten",
             questions: [
               {
                 q: "Vad har du gjort under dagen?",
@@ -66,11 +73,11 @@ export default {
             ]
           },
           {
+            logId: 1,
             day: "Tuesday",
             week: "Week 48",
-            logUser: "Jonathan Ronsten",
-            logId: 1,
             year: 2020,
+            logUser: "Jonathan Ronsten",
             questions: [
               { q: "Vad har du gjort under dagen?", a: "asdadadsafasda" },
               { q: "Vad har du lärt dig idag?", a: "asda" },
@@ -84,11 +91,11 @@ export default {
             comments: []
           },
           {
+            logId: 2,
             day: "Wednesday",
             week: "Week 48",
-            logUser: "Jonathan Ronsten",
-            logId: 2,
             year: 2020,
+            logUser: "Jonathan Ronsten",
             questions: [
               { q: "Vad har du gjort under dagen?", a: "JAJAJAJAJA" },
               { q: "Vad har du lärt dig idag?", a: "Jag har gett upp" },
@@ -138,25 +145,25 @@ export default {
     ]
   },
   mutations: {
-    addComment(state: any, newComment: Comment) {
+    addComment(state: LogsState, newComment: Comment) {
       const comment = { name: newComment.name, data: newComment.data };
       console.log(newComment);
-      const log: any = newComment.log;
+      const log = newComment.log;
       console.log(newComment);
-      state.logs
-        .find((user: any) => user.name === log.logUser)
-        .log.find((l: any) => l.logId === log.logId)
-        .comments.push(comment);
+      state.users
+        .find(user => user.name === log.logUser)
+        ?.logs?.find((l: Log) => l.logId === log.logId)
+        ?.comments.push(comment);
     }
   },
   actions: {
-    addComments(ctx: any, newComment: Record<string, any>) {
+    addComments(ctx, newComment) {
       ctx.commit("addComment", newComment);
     }
   },
   getters: {
-    getLogs(state: any) {
-      return state.logs;
+    getLogs(state) {
+      return state.users;
     }
   }
-};
+} as Module<LogsState, {}>;

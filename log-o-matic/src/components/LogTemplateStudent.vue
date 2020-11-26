@@ -47,9 +47,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import Vuex from "vuex";
 import Timeline from "./Timeline.vue";
-import { mapGetters } from "vuex";
 export default Vue.extend({
   name: "LogTemplateOneDay",
   data() {
@@ -64,9 +62,6 @@ export default Vue.extend({
     };
   },
   computed: {
-    /*
-        ...mapGetters('users', ['getCurrentUserRole']),
-        ...mapGetters('comment', ['allComments'])' */
     currentUserRole() {
       return this.$store.getters.getCurrentUserRole;
     },

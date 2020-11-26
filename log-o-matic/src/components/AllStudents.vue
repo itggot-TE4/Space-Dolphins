@@ -72,7 +72,7 @@ export default Vue.extend({
   },
 
   methods: {
-    newpassword: function(payload: Record<string, any>) {
+    newpassword: function(payload: Record<string, string | {}>) {
       this.$store.commit("updatePassword", payload);
     },
 
