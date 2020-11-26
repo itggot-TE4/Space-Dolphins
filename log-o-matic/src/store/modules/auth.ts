@@ -1,4 +1,3 @@
-import Vue from "vue";
 import { Module, mapGetters } from "vuex";
 import { User } from "./users";
 

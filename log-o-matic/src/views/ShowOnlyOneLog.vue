@@ -11,8 +11,6 @@
 <script lang="ts">
 import Vue from "vue";
 import LogTemplateTeacher from "@/components/LogTemplateTeacher.vue";
-import Vuex from "vuex";
-import { mapGetters } from "vuex";
 import Store from "@/store";
 export default Vue.extend({
   name: "ShowOnlyOneLog",

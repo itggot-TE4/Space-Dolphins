@@ -11,8 +11,6 @@
 <script lang="ts">
 import Vue from "vue";
 import LogTemplateStudent from "@/components/LogTemplateStudent.vue";
-import Vuex from "vuex";
-import { mapGetters } from "vuex";
 import Store from "@/store";
 export default Vue.extend({
   name: "ShowStudentLog",

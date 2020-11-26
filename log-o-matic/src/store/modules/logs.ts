@@ -1,8 +1,3 @@
-import { mdiSourceCommit } from "@mdi/js";
-import Vue from "vue";
-import { Module, mapGetters } from "vuex";
-import { User } from "./users";
-
 export interface Log {
   email: string;
   name: string;

@@ -10,7 +10,10 @@
             :items="fetchStudents"
           >
             <template v-slot:[`item.teacher`]="{ item }">
-              <teacher-set-row :fetchTeachers="fetchTeachers" :item="item"></teacher-set-row>
+              <teacher-set-row
+                :fetchTeachers="fetchTeachers"
+                :item="item"
+              ></teacher-set-row>
             </template>
             <template v-slot:[`item.password`]="{ item }">
               <table-row :item="item"></table-row>
@@ -48,8 +51,8 @@
 
 <script lang="ts">
 import Vue from "vue";
-import TableRow from './TableRow.vue';
-import TeacherSetRow from './TeacherSetRow.vue';
+import TableRow from "./TableRow.vue";
+import TeacherSetRow from "./TeacherSetRow.vue";
 
 export default Vue.extend({
   name: "AllStudents",
@@ -88,8 +91,7 @@ export default Vue.extend({
       };
 
       this.$store.commit("addStudent", student);
-    },
-
+    }
   },
 
   computed: {
@@ -104,7 +106,7 @@ export default Vue.extend({
 
   components: {
     TableRow,
-    TeacherSetRow,
+    TeacherSetRow
   }
 });
 </script>
