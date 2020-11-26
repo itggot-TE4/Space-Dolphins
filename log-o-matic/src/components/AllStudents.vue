@@ -10,36 +10,10 @@
             :items="fetchStudents"
           >
             <template v-slot:[`item.teacher`]="{ item }">
-              <v-row class="justify-center align-end mb-0">
-                <v-select
-                  class="mb-0"
-                  :items="fetchTeachers"
-                  item-text="name"
-                  item-value="email"
-                  :label="
-                    fetchTeachers.find(teacher => (teacher.id = item.teacherId))
-                      .name
-                  "
-                  v-on:change="updateteacher(item, $event)"
-                ></v-select>
-              </v-row>
+              <teacher-set-row :fetchTeachers="fetchTeachers" :item="item"></teacher-set-row>
             </template>
             <template v-slot:[`item.password`]="{ item }">
-              <v-row class="justify-center align-end mb-5">
-                <v-text-field
-                  v-model="item.password"
-                  placeholder="Password"
-                  class="ma-0"
-                  hide-details="auto"
-                ></v-text-field>
-                <v-btn
-                  color="blue"
-                  class="white--text rounded-0"
-                  small
-                  v-on:click="newpassword(item)"
-                  >RESET</v-btn
-                >
-              </v-row>
+              <table-row :item="item"></table-row>
             </template>
           </v-data-table>
           <v-divider color="black"></v-divider>
@@ -50,7 +24,7 @@
             <v-select
               :items="fetchTeachers"
               item-text="name"
-              item-value="email"
+              item-value="id"
               v-model="teacher"
               label="Teacher"
             ></v-select>
@@ -74,6 +48,8 @@
 
 <script lang="ts">
 import Vue from "vue";
+import TableRow from './TableRow.vue';
+import TeacherSetRow from './TeacherSetRow.vue';
 
 export default Vue.extend({
   name: "AllStudents",
@@ -111,34 +87,34 @@ export default Vue.extend({
         role: "student"
       };
 
+      console.log(student, "student")
       this.$store.commit("addStudent", student);
-    }
+    },
+
   },
 
   computed: {
     fetchStudents() {
-      const students: { password: string }[] = this.$store.getters.getStudents;
-
-      students.forEach(student => {
-        student.password = "";
-      });
-
-      console.log(students);
-      return students;
+      console.log(this.$store.getters.getStudents)
+      return this.$store.getters.getStudents;
     },
 
     fetchTeachers() {
+      console.log(this.$store.getters.getTeachers)
       return this.$store.getters.getTeachers;
     }
   },
 
-  components: {}
+  components: {
+    TableRow,
+    TeacherSetRow,
+  }
 });
 </script>
 
 <style scoped>
 .sizer {
-  width: 90%;
+  width: 80%;
   height: 90%;
   margin: auto;
 }
