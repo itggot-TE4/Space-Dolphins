@@ -67,70 +67,70 @@
 import Vue from "vue";
 
 export default Vue.extend({
-    name: "AllStudents",
-    data(){
-      return{
-        email: "",
-        name: "",
-        teacher: "",
-        password: "",
-        headers: [
-            { text: 'Email', value: 'email' },
-            { text: 'Name', value: 'name' },
-            { text: 'Teacher', value: 'teacher' },
-            { text: "Fix password", value: "password"}
-        ],
-      }
+  name: "AllStudents",
+  data() {
+    return {
+      email: "",
+      name: "",
+      teacher: "",
+      password: "",
+      headers: [
+        { text: "Email", value: "email" },
+        { text: "Name", value: "name" },
+        { text: "Teacher", value: "teacher" },
+        { text: "Fix password", value: "password" }
+      ]
+    };
+  },
+
+  methods: {
+    newpassword: function(item: any) {
+      console.log(item);
     },
 
-    methods: {
-        newpassword: function(item : any){
-            console.log(item)
-        },
-
-        updateteacher: function(item : {}, e: Event){
-            console.log(item)
-            console.log(e)
-        },
-
-        newstudent: function(){
-            const student = {
-                name: this.name,
-                email: this.email,
-                teacherId: this.teacher,
-                password: this.password
-            }
-
-            this.$store.commit('addStudent', student)
-        },
+    updateteacher: function(item: {}, e: Event) {
+      console.log(item);
+      console.log(e);
     },
 
-    computed: {
-        fetchStudents () {
-            let students : {password: string}[]= this.$store.getters.getStudents;
+    newstudent: function() {
+      const student = {
+        name: this.name,
+        email: this.email,
+        teacherId: this.teacher,
+        password: this.password,
+        role: "student"
+      };
 
-            students.forEach(student => {
-                student.password = "";
-            });
-
-            console.log(students)
-            return students
-        },
-
-        fetchTeachers () {
-            return this.$store.getters.getTeachers;
-        }
-    },
-
-    components: {
+      this.$store.commit("addStudent", student);
     }
+  },
+
+  computed: {
+    fetchStudents() {
+      const students: { password: string }[] = this.$store.getters.getStudents;
+
+      students.forEach(student => {
+        student.password = "";
+      });
+
+      console.log(students);
+      return students;
+    },
+
+    fetchTeachers() {
+      return this.$store.getters.getTeachers;
+    }
+  },
+
+  components: {}
 });
 </script>
 
 <style scoped>
-    .sizer{
-        width: 90%;
-        height: 90%;
-        margin: auto;
-    }
+.sizer {
+  width: 90%;
+  height: 90%;
+  margin: auto;
+}
 </style>
