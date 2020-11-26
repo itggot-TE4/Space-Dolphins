@@ -87,7 +87,6 @@ export default Vue.extend({
         role: "student"
       };
 
-      console.log(student, "student")
       this.$store.commit("addStudent", student);
     },
 
@@ -95,12 +94,10 @@ export default Vue.extend({
 
   computed: {
     fetchStudents() {
-      console.log(this.$store.getters.getStudents)
       return this.$store.getters.getStudents;
     },
 
     fetchTeachers() {
-      console.log(this.$store.getters.getTeachers)
       return this.$store.getters.getTeachers;
     }
   },

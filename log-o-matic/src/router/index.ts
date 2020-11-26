@@ -3,8 +3,9 @@ import VueRouter, { RouteConfig } from "vue-router";
 import store from "@/store/index";
 import Home from "../views/Home.vue";
 import Admin from "../views/Admin.vue";
-import ShowLogs from "../views/ShowLogs.vue";
+import ViewLogs from "../views/ViewLogs.vue";
 import Login from "../views/Login.vue";
+import Student from "../views/Student.vue";
 
 Vue.use(VueRouter);
 
@@ -28,9 +29,9 @@ const routes: Array<RouteConfig> = [
   {
     path: "/logs",
     name: "Logs",
-    component: ShowLogs,
+    component: ViewLogs,
     meta: {
-      allowedRoles: ["admin", "teacher", "student"]
+      allowedRoles: ["admin", "teacher"]
     }
   },
   {
@@ -39,6 +40,14 @@ const routes: Array<RouteConfig> = [
     component: Admin,
     meta: {
       allowedRoles: ["admin"]
+    }
+  },
+  {
+    path: "/student",
+    name: "Student",
+    component: Student,
+    meta: {
+      allowedRoles: ["student"]
     }
   }
 ];
@@ -57,6 +66,8 @@ router.beforeEach((to, from, next) => {
   } else {
     if (userRole === "guest") {
       next("/");
+    } else if (userRole === "student") {
+      next("/student");
     } else {
       next("/logs");
     }
