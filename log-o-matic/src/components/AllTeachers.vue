@@ -53,6 +53,7 @@
 <script lang="ts">
 import Vue from "vue";
 import Teacher from "./Teacher.vue";
+import uuid from "uuid";
 
 export default Vue.extend({
   name: "AllTeachers",
@@ -71,14 +72,16 @@ export default Vue.extend({
 
   methods: {
     newpassword: function(item: Record<string, any>) {
-      this.$store.commit('')
+      // this.$store.commit("addTeacher", teacher);
+      console.log(item);
     },
 
     create: function() {
       const teacher = {
         name: this.name,
         email: this.email,
-        password: this.password
+        password: this.password,
+        role: "teacher"
       };
       this.$store.commit("addTeacher", teacher);
     }
@@ -87,6 +90,7 @@ export default Vue.extend({
   computed: {
     fetchTeachers() {
       const teachers: { password: string }[] = this.$store.getters.getTeachers;
+      console.log(teachers);
 
       teachers.forEach(teacher => {
         teacher.password = "";
