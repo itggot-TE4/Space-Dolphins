@@ -104,10 +104,17 @@ export default {
   mutations: {
     addTeacher(state, teacher) {
       //teacher = 1: {name: "teacher1", password: "password123", email: "teacher@mail.com"}
-      Vue.set(state.users, uuid(), teacher);
+      teacher["id"] = uuid();
+      state.users.push(teacher);
     },
+
     setCurrentUser(state, user) {
       state.currentUser = user;
+    },
+
+    addStudent(state, student) {
+      student["id"] = uuid();
+      state.users.push(student);
     }
   },
   actions: {
