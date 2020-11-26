@@ -6,6 +6,11 @@ import Admin from "../views/Admin.vue";
 import ViewLogs from "../views/ViewLogs.vue";
 import Login from "../views/Login.vue";
 import Student from "../views/Student.vue";
+import Logs from "../views/showLogs.vue";
+import ShowLogsForOneDay from "../views/ShowLogsForOneDay.vue";
+import ShowLogsForOneStudent from "../views/ShowLogsForOneStudent.vue";
+import ShowOnlyOneLog from "../views/ShowOnlyOneLog.vue";
+import StudentLog from "../views/StudentLog.vue";
 
 Vue.use(VueRouter);
 
@@ -42,13 +47,37 @@ const routes: Array<RouteConfig> = [
       allowedRoles: ["admin"]
     }
   },
+  // {
+  //   path: "/student",
+  //   name: "Student",
+  //   component: Student,
+  //   meta: {
+  //     allowedRoles: ["student"]
+  //   }
+  //   path: "/login",
+  //   name: "Login",
+  //   component: () =>
+  //     import(/* webpackChunkName: "login" */ "../views/Login.vue")
+  // },
   {
-    path: "/student",
-    name: "Student",
-    component: Student,
-    meta: {
-      allowedRoles: ["student"]
-    }
+    path: "/ShowLogsForOneDay",
+    name: "ShowLogsForOneStudent",
+    component: ShowLogsForOneDay
+  },
+  {
+    path: "/ShowLogsForOneStudent",
+    name: "ShowLogsForOneStudent",
+    component: ShowLogsForOneStudent
+  },
+  {
+    path: "/ShowOnlyOneLog",
+    name: "ShowOnlyOneLog",
+    component: ShowOnlyOneLog
+  },
+  {
+    path: "/StudentLog",
+    name: "StudentLog",
+    component: StudentLog
   }
 ];
 

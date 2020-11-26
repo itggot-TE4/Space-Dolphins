@@ -61,7 +61,7 @@ export default {
       },
       {
         id: "8375d379-70fd-4977-b3ab-03d66f32ca8f",
-        name: "abc",
+        name: "Jonathan Ronsten",
         teacherId: "8375d379-70fd-4977-b3ab-03d66f32ca8f",
         password: "123",
         email: "abc@gmail.com",
