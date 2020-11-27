@@ -13,6 +13,26 @@
           {{ item.name }}
         </div>
       </template>
+      <template v-slot:[`header.monday`]="{}">
+        <p @click="showLogsForOneDay">Monday</p>
+      </template>
+
+      <template v-slot:[`header.tuesday`]="{}">
+        <p @click="showLogsForOneDay">Tuesday</p>
+      </template>
+
+      <template v-slot:[`header.wednesday`]="{}">
+        <p @click="showLogsForOneDay">Wednesday</p>
+      </template>
+
+      <template v-slot:[`header.thursday`]="{}">
+        <p @click="showLogsForOneDay">Thursday</p>
+      </template>
+
+      <template v-slot:[`header.friday`]="{}">
+        <p @click="showLogsForOneDay">Friday</p>
+      </template>
+
       <template v-slot:[`item.monday`]="{ item }">
         <v-icon large v-if="item.monday.data == null" color="warning"
           >mdi-alert-circle</v-icon
@@ -124,6 +144,10 @@ export default Vue.extend({
     },
     showLogsForOneStudent() {
       this.$router.push("/showlogsforonestudent");
+    },
+    
+    showLogsForOneDay() {
+      this.$router.push("/showlogsforoneday");
     }
   }
 });
