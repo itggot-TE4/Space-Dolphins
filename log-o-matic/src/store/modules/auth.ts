@@ -7,7 +7,7 @@ export interface AuthState {
 
 export default {
   state: {
-    namespaced: true,
+    // namespaced: true,
     error: ""
   },
   computed: {

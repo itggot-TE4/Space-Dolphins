@@ -17,7 +17,7 @@ export interface UserState {
 
 export default {
   state: {
-    namespaced: true,
+    // namespaced: true,
     currentUser: {
       role: "guest",
       name: "guest"
@@ -136,11 +136,11 @@ export default {
     }
   },
   getters: {
-    getTeachers(state) {
+    getTeachers(state): User[] {
       return state.users.filter(user => user.role === "teacher");
     },
 
-    getStudents(state) {
+    getStudents(state): User[] {
       return state.users.filter(user => user.role === "student");
     },
 

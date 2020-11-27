@@ -39,6 +39,7 @@
 <script lang="ts">
 import Vue from "vue";
 import TableRow from "./TableRow.vue";
+import { User } from "@/store/modules/users";
 
 export default Vue.extend({
   name: "AllTeachers",
@@ -69,7 +70,7 @@ export default Vue.extend({
   },
 
   computed: {
-    fetchTeachers() {
+    fetchTeachers(): User[] {
       return this.$store.getters.getTeachers;
     }
   },
