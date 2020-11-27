@@ -53,10 +53,6 @@ const routes: Array<RouteConfig> = [
     meta: {
       allowedRoles: ["student"]
     }
-    // path: "/login",
-    // name: "Login",
-    // component: () =>
-    //   import(/* webpackChunkName: "login" */ "../views/Login.vue")
   },
   {
     path: "/showlogsforoneday",

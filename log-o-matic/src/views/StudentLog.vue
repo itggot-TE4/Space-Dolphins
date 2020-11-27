@@ -1,8 +1,8 @@
 <template>
   <div>
     <h2 class="mx-auto d-flex align-center justify-center">
-      {{ getAllLogs[0].name }} {{ getAllLogs[0].log[0].day }}
-      {{ getAllLogs[0].log[0].week }}
+      {{ getAllLogs[0].name }} {{ getAllLogs[0].logs[0].day }}
+      {{ getAllLogs[0].logs[0].week }}
     </h2>
     <LogTemplateStudent />
   </div>
