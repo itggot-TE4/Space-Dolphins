@@ -10,13 +10,15 @@ describe("LoginForm.vue", () => {
 
   beforeEach(() => {
     Vue.use(vuetify);
+    testStore = {
+      dispatch: store.dispatch,
+      commit: store.commit,
+      getters: store.getters
+    };
   });
 
   it("tests to login as admin with correct information and error message is not shown", async () => {
-    testStore = store;
-
     testStore.dispatch = jest.fn();
-
     const wrapper = mount(LoginForm, {
       store: testStore
     });
@@ -36,13 +38,13 @@ describe("LoginForm.vue", () => {
 
   it("tests to login as admin with incorrect information and error message is shown", async () => {
     const wrapper = mount(LoginForm, {
-      store: store
+      store: testStore
     });
 
     await wrapper.find('[data-unit="username"]').setValue("senapsgurkmajonös");
     await wrapper.find('[data-unit="password"]').setValue("fyfan");
     await wrapper.find('[data-unit="login-btn"]').trigger("click");
-    const errorElement = await wrapper.find('[data-unit="error_message"]');
+    const errorElement = wrapper.find('[data-unit="error_message"]');
 
     expect(errorElement.text()).toBe("Wrong email or password");
   });
