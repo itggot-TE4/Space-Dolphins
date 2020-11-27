@@ -12,7 +12,6 @@
 <script lang="ts">
 import Vue from "vue";
 import LoginForm from "@/components/LoginForm.vue";
-import { mapGetters } from "vuex";
 
 export default Vue.extend({
   name: "Home",

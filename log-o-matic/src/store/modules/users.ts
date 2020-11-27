@@ -1,4 +1,3 @@
-import Vue from "vue";
 import { Module } from "vuex";
 import { v4 as uuid } from "uuid";
 
@@ -61,7 +60,7 @@ export default {
       },
       {
         id: "8375d379-70fd-4977-b3ab-03d66f32ca8f",
-        name: "abc",
+        name: "Jonathan Ronsten",
         teacherId: "8375d379-70fd-4977-b3ab-03d66f32ca8f",
         password: "123",
         email: "abc@gmail.com",
@@ -103,7 +102,6 @@ export default {
   },
   mutations: {
     addTeacher(state, teacher) {
-      //teacher = 1: {name: "teacher1", password: "password123", email: "teacher@mail.com"}
       teacher["id"] = uuid();
       state.users.push(teacher);
     },
