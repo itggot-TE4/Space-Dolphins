@@ -57,22 +57,34 @@ const routes: Array<RouteConfig> = [
   {
     path: "/showlogsforoneday",
     name: "ShowLogsForOneStudent",
-    component: ShowLogsForOneDay
+    component: ShowLogsForOneDay,
+    meta: {
+      allowedRoles: ["admin", "teacher", "student"]
+    }
   },
   {
     path: "/showlogsforonestudent",
     name: "ShowLogsForOneStudent",
-    component: ShowLogsForOneStudent
+    component: ShowLogsForOneStudent,
+    meta: {
+      allowedRoles: ["admin", "teacher", "student"]
+    }
   },
   {
     path: "/showonlyonelog",
     name: "ShowOnlyOneLog",
-    component: ShowOnlyOneLog
+    component: ShowOnlyOneLog,
+    meta: {
+      allowedRoles: ["admin", "teacher", "student"]
+    }
   },
   {
     path: "/studentlog",
     name: "StudentLog",
-    component: StudentLog
+    component: StudentLog,
+    meta: {
+      allowedRoles: ["admin", "teacher", "student"]
+    }
   }
 ];
 
