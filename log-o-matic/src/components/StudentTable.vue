@@ -6,7 +6,13 @@
       :headers="headers"
       :items="data"
       hide-default-footer
+      disable-sort
     >
+      <template v-slot:[`item.name`]="{ item }">
+        <div @click="showLogsForOneStudent" class="ma-auto">
+          {{ item.name }}
+        </div>
+      </template>
       <template v-slot:[`item.monday`]="{ item }">
         <v-icon large v-if="item.monday.data == null" color="warning"
           >mdi-alert-circle</v-icon
@@ -102,7 +108,6 @@ export default Vue.extend({
         {
           text: "Students",
           align: "start",
-          sortable: false,
           value: "name"
         },
         { text: "Monday", value: "monday" },
@@ -116,6 +121,9 @@ export default Vue.extend({
   methods: {
     showOnlyOneLog() {
       this.$router.push("/showonlyonelog");
+    },
+    showLogsForOneStudent() {
+      this.$router.push("/showlogsforonestudent");
     }
   }
 });
