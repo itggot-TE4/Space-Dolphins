@@ -7,7 +7,7 @@ import logs from "./modules/logs";
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+export default new Vuex.Store<{}>({
   strict: true,
   modules: {
     auth,
@@ -15,6 +15,6 @@ export default new Vuex.Store({
     logs
   },
   state: {
-    namespaced: true
+    // namespaced: true
   }
 });

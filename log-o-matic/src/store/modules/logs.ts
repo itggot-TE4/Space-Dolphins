@@ -32,7 +32,7 @@ export interface Comment {
 
 export default {
   state: {
-    namespaced: true,
+    // namespaced: true,
     users: [
       {
         id: "8375d379-70fd-4977-b3ab-03d66f32ca8f",

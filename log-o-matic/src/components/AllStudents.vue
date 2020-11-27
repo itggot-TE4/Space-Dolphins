@@ -53,6 +53,7 @@
 import Vue from "vue";
 import TableRow from "./TableRow.vue";
 import TeacherSetRow from "./TeacherSetRow.vue";
+import { User } from "@/store/modules/users"
 
 export default Vue.extend({
   name: "AllStudents",
@@ -95,11 +96,11 @@ export default Vue.extend({
   },
 
   computed: {
-    fetchStudents() {
+    fetchStudents() : User[]{
       return this.$store.getters.getStudents;
     },
 
-    fetchTeachers() {
+    fetchTeachers() : User[]{
       return this.$store.getters.getTeachers;
     }
   },

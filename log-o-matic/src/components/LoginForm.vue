@@ -1,9 +1,12 @@
 <template>
   <v-card elevation="2">
     <v-card-title class="text-h3 ma-2">Sign In</v-card-title>
-    <v-card-subtitle class="text-h6 ma-2 red--text" v-if="loginError != ''">{{
-      loginError
-    }}</v-card-subtitle>
+    <v-card-subtitle
+      data-unit="error_message"
+      class="text-h6 ma-2 red--text"
+      v-if="loginError != ''"
+      >{{ loginError }}</v-card-subtitle
+    >
     <v-card-actions class="ma-4">
       <v-icon large class="mr-3">mdi-account-circle</v-icon>
       <v-text-field
@@ -12,6 +15,7 @@
         v-model="email"
         placeholder="Email"
         class="text-h5"
+        data-unit="username"
       >
         <template v-slot:append>
           <v-icon class="white--text grey darken-1 rounded ma-4"
@@ -26,6 +30,7 @@
         name="password"
         v-model="password"
         placeholder="Password"
+        data-unit="password"
         class="text-h5"
         :type="showPassword ? 'text' : 'password'"
       >
@@ -51,7 +56,11 @@
     <v-divider></v-divider>
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn @click="login()" color="success" class="text-h6 py-6 px-3 ma-2"
+      <v-btn
+        data-unit="login-btn"
+        @click="login()"
+        color="success"
+        class="text-h6 py-6 px-3 ma-2"
         >SIGN IN</v-btn
       >
     </v-card-actions>
